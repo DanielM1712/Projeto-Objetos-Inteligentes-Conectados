@@ -1,1 +1,12 @@
-# Projeto-Objetos-Inteligentes-Conectados
+Descrição do Projeto
+Este projeto apresenta um sistema de irrigação automática voltado para a agricultura industrial, desenvolvido com tecnologia IoT para otimizar o uso de água e aumentar a eficiência. Usando o microcontrolador NodeMCU ESP32, o sistema monitora continuamente a umidade do solo em tempo real por meio de sensores de umidade de solo, acionando automaticamente uma mini bomba de água RS385 quando estes sensores detectam níveis de umidade abaixo do esperado, eliminando a necessidade de controle manual. Os dados e o status do sistema são transmitidos via protocolo MQTT, com monitoramento remoto através do aplicativo IoT MQTT Panel. Este repositório documenta todas as etapas para montagem, configuração e operação do sistema, proporcionando uma solução moderna e escalável para automação de irrigação agrícola com IoT.
+Hardware Utilizado
+O sistema foi montado com o usando a arduino IDE, microcontrolador NodeMCU ESP32, sensor de umidade de solo HW-080, mini bomba de água RS385 e uma fonte de 9V. LEDs foram incorporados para indicar o status de funcionamento, e o circuito foi estruturado em uma protoboard com jumpers e resistores. NO sistema foi utilizado o protocolo MQTT para comunicação entre dispositivos, com o broker Mosquitto como servidor de mensagens, facilitando a troca de dados em tempo real entre o sensor de umidade, o microcontrolador ESP32 e o painel de monitoramento remoto. A integração com o Node-RED permite visualizações e automações configuráveis, que simplificam o acompanhamento das leituras do sensor e o status da bomba de água.
+Como executar o projeto
+Baixe e instale a IDE do Arduino.
+Carregue o arquivo codigo-irrigacao.ino para o NodeMCU ESP32 através da Arduino IDE. Esse código permite que o ESP32 leia os dados do sensor de umidade e se comunique via MQTT.
+Instale o Mosquitto como broker MQTT no seu sistema para gerenciar a comunicação entre o ESP32 e o aplicativo de monitoramento.
+Baixe e instale o Node-RED em sua máquina para criar e monitorar fluxos de dados entre o ESP32 e o painel de controle.
+Importe o arquivo codigo-fluxo-node-red.json para o Node-RED, que contém o fluxo de monitoramento. Verifique se os nós MQTT estão configurados com o IP do broker Mosquitto e se estão conectados ao tópico correto, como "SensorUmidade" e "ComandoBomba".
+Instale o IoT MQTT Panel em seu dispositivo móvel e conecte-se ao mesmo broker Mosquitto. Configure painéis para receber as leituras de umidade do solo e o status do sistema de irrigação.
+Com o Node-RED, o Mosquitto e o ESP32 configurados e conectados, inicie a comunicação para monitorar o status do solo e ativar a bomba automaticamente quando necessário.
